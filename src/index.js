@@ -10,6 +10,10 @@ ReactDOM.render(
       <header>
         My Weather
       </header>
+      <footer>
+        <a href="https://github.com/franciscaconradoneves/react-final-weather-app.git" target="_blank">Open-source</a> code by
+        <a href="https://www.linkedin.com/in/francisca-conrado-neves-72878b136" target="_blank"> Francisca Conrado Neves</a>
+      </footer>
     </div>
   </React.StrictMode>,
   document.getElementById('root')
