@@ -1,0 +1,57 @@
+.CurrentWeather ul {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+  }
+  
+.CurrentWeather li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 19px;
+  }
+  
+.CurrentWearher li:first-letter {
+    text-transform: capitalize;
+  }
+
+.CurrentWeather h1 {
+    font-size: 50px;
+    font-family: "Bree Serif", serif;
+    color: #f5f4f4;
+    font-size: 40px;
+}
+
+.WeatherTemperature img {
+    margin-right: 5px;
+    height: 64px;
+    width: 64px;
+}
+
+.WeatherTemperature strong {
+    color: rgb(31, 31, 31);
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.WeatherTemperature .units {
+    position: relative;
+    font-size: 16px;
+    top: -34px;
+}
+
+.WeatherTemperature .active {
+    color: #f5f4f4;
+    cursor: default;
+    text-decoration: none;
+}
+
+.WeatherTemperature .active:hover {
+    text-decoration: none;
+}
+  
+

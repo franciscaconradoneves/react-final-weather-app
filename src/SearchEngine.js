@@ -7,7 +7,7 @@ export default function SearchEngine(){
         <div>
             <form className="mb-3" id="weather-form">
             <div className="row">
-                <div className="col-5">
+                <div className="col-8">
                 <input
                     type="search"
                     id="city-input"
@@ -20,17 +20,17 @@ export default function SearchEngine(){
                 <input
                     type="submit"
                     id="search"
-                    value="Search"
+                    value = "Search"
                     className="btn btn-outline-light btn-sm"
                 />
                 </div>
-                <div className="col-4">
+                <div className="col-2">
                 <button
                     type="submit"
                     className="btn btn-outline-light btn-sm"
                     id="current-location-button"
                 >
-                    Current Location
+                    <i class="fas fa-map-marker-alt"></i>
                 </button>
                 </div>
             </div>
