@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios"
 import { PointSpreadLoading } from 'react-loadingg';
 
+import FormattedDate from "./FormattedDate";
+
 import "./CurrentWeather.css";
 
 export default function CurrentWeather(props){
@@ -11,6 +13,7 @@ export default function CurrentWeather(props){
         setWestherData({
             ready: true,
             cityName: response.data.name,
+            date: new Date(response.data.dt * 1000),
             description: response.data.weather[0].description,
             icon: response.data.weather[0].icon,
             temp: Math.round(response.data.main.temp),
@@ -25,7 +28,7 @@ export default function CurrentWeather(props){
                 <h1> {weatherData.cityName} </h1>
                 <ul>
                 <li>
-                    Last updated: <span> Sunday </span>
+                    Last update: <FormattedDate date={weatherData.date} /> 
                 </li>
                 <li> {weatherData.description}</li>
                 </ul>
