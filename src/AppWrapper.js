@@ -8,7 +8,7 @@ export default function AppWrapper(){
     return( 
     <div className="AppWrapper">
         <SearchEngine />
-        <CurrentWeather />
+        <CurrentWeather defaultCity="Porto"/>
     </div>
     );
 }
