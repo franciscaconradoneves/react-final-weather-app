@@ -1,36 +1,19 @@
 import React, { useState } from "react";
-import axios from "axios"
-import { PointSpreadLoading } from 'react-loadingg';
-
 import FormattedDate from "./FormattedDate";
 
 import "./CurrentWeather.css";
 
-export default function CurrentWeather(props){
-    const [weatherData, setWestherData] = useState({ready: false})
-    
-    function displayCurrentInformation(response){
-        setWestherData({
-            ready: true,
-            cityName: response.data.name,
-            date: new Date(response.data.dt * 1000),
-            description: response.data.weather[0].description,
-            icon: response.data.weather[0].icon,
-            temp: Math.round(response.data.main.temp),
-            humidity: Math.round(response.data.main.humidity),
-            wind: Math.round(response.data.wind.speed),
-        })
-    }
 
-    if(weatherData.ready){
+
+export default function CurrentWeather(props){
         return(
             <div className="CurrentWeather">
-                <h1> {weatherData.cityName} </h1>
+              <h1> {props.weatherData.cityName} </h1>
                 <ul>
                 <li>
-                    Last update: <FormattedDate date={weatherData.date} /> 
+                    Last update: <FormattedDate date={props.weatherData.date} /> 
                 </li>
-                <li> {weatherData.description}</li>
+                <li> {props.weatherData.description}</li>
                 </ul>
                 <div className="row">
                 <div className="col-7">
@@ -40,7 +23,7 @@ export default function CurrentWeather(props){
                         alt=""
                         className="float-left"
                     />
-                    <strong>{weatherData.temp}</strong>
+                    <strong>{props.weatherData.temp}</strong>
                     <span className="units">
                         <a href=" " className="active">
                         ºC
@@ -55,22 +38,17 @@ export default function CurrentWeather(props){
                 <div className="col-5">
                     <ul>
                     <li>
-                        Humidity: {weatherData.humidity}<span className="humidity-wind">%</span>
+                        Humidity: {props.weatherData.humidity}<span className="humidity-wind">%</span>
                     </li>
                     <li>
-                        Wind: {weatherData.wind}<span className="humidity-wind">km/h</span>
+                        Wind: {props.weatherData.wind}<span className="humidity-wind">km/h</span>
                     </li>
                     </ul>
                 </div>
-                </div>
+                </div>  
+                
             </div>
         );  
-    } else{
-        const apiKey ="6eb07ba03ae42dc9fd0ee53117b1409f"
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(displayCurrentInformation);
-        return <PointSpreadLoading />
-    }
 
 
 }
