@@ -16,7 +16,7 @@ export default function SearchEngine(props){
             cityName: response.data.name,
             date: new Date(response.data.dt * 1000),
             description: response.data.weather[0].description,
-            icon: response.data.weather[0].icon,
+            icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
             temp: Math.round(response.data.main.temp),
             humidity: Math.round(response.data.main.humidity),
             wind: Math.round(response.data.wind.speed),

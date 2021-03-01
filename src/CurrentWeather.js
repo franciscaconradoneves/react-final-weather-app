@@ -19,8 +19,8 @@ export default function CurrentWeather(props){
                 <div className="col-7">
                     <div className="clearfix WeatherTemperature">
                     <img
-                        src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-                        alt=""
+                        src={props.weatherData.icon}
+                        alt={props.weatherData.description} 
                         className="float-left"
                     />
                     <strong>{props.weatherData.temp}</strong>
