@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperatureScale from "./WeatherTemperatureScale";
 
 import "./CurrentWeather.css";
 
@@ -19,19 +20,10 @@ export default function CurrentWeather(props){
                 <div className="row">
                 <div className="col-7">
                     <div className="clearfix WeatherTemperature">
-                    <div className="float-left">    
-                        <WeatherIcon code ={props.weatherData.icon} />
-                    </div>
-                    <strong>{props.weatherData.temp}</strong>
-                    <span className="units">
-                        <a href=" " className="active">
-                        ºC
-                        </a>
-                        |
-                        <a href=" ">
-                        ºF
-                        </a>
-                    </span>
+                        <div className="float-left">    
+                            <WeatherIcon code ={props.weatherData.icon} />
+                        </div>
+                        <WeatherTemperatureScale celsius={props.weatherData.temp}/>
                     </div>
                 </div>
                 <div className="col-5">
