@@ -1,0 +1,23 @@
+h3 {
+    text-align: center;
+    color: #f5f4f4;
+    font-size: 15px;
+    font-weight: 400;
+    height: 15px;
+    line-height: 15px;
+    padding-top: 7px;
+}
+.ForecastPreview canvas {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 35px;
+    width: 35px;
+}
+  
+.ForecastTemperature {
+    margin-top: 5px;
+    color: #f5f4f4;
+    font-size: 13px;
+    white-space: nowrap;
+}

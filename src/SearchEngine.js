@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios"
 import { PointSpreadLoading } from 'react-loadingg';
+
 import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 
-
+import "./SearchEngine.css"
 
 
 export default function SearchEngine(props){
@@ -14,6 +16,8 @@ export default function SearchEngine(props){
         setWeatherData({
             ready: true,
             cityName: response.data.name,
+            lat: response.data.coord.lat,
+            lon: response.data.coord.lon,
             date: new Date(response.data.dt * 1000),
             description: response.data.weather[0].description,
             icon: response.data.weather[0].icon,
@@ -60,41 +64,44 @@ export default function SearchEngine(props){
     if(weatherData.ready){
         return(
             <div className="SearchEngine">
-                <form className="mb-3" onSubmit={handleSubmit} >
-                    <div className="row">
-                        <div className="col-8">
-                            <input
-                                type="search"
-                                placeholder="Change city"
-                                autoComplete="off"
-                                className="form-control"
-                                onChange={updateCity}
-                            />
+                <div className="appWrapper">
+                    <form className="mb-3" onSubmit={handleSubmit} >
+                        <div className="row">
+                            <div className="col-8">
+                                <input
+                                    type="search"
+                                    placeholder="Change city"
+                                    autoComplete="off"
+                                    className="form-control"
+                                    onChange={updateCity}
+                                />
+                                </div>
+                                <div className="col-2">
+                                <input
+                                    type="submit"
+                                    value = "Search"
+                                    className="btn btn-outline-light btn-sm"
+                                />
+                                </div>
+                                <div className="col-2">
+                                <button
+                                    type="submit"
+                                    className="btn btn-outline-light btn-sm"
+                                    onClick={handleLocation}
+                                >
+                                    <i className="fas fa-map-marker-alt"></i>
+                                </button>
                             </div>
-                            <div className="col-2">
-                            <input
-                                type="submit"
-                                value = "Search"
-                                className="btn btn-outline-light btn-sm"
-                            />
-                            </div>
-                            <div className="col-2">
-                            <button
-                                type="submit"
-                                className="btn btn-outline-light btn-sm"
-                                onClick={handleLocation}
-                            >
-                                <i className="fas fa-map-marker-alt"></i>
-                            </button>
                         </div>
-                    </div>
-                </form>
-                <CurrentWeather weatherData={weatherData} />
+                    </form>
+                    <CurrentWeather weatherData={weatherData} />
+                </div>
+                <Forecast lat= {weatherData.lat} lon = {weatherData.lon} />
             </div>
         );  
     } else{
         search();
-        return <PointSpreadLoading />
+        return <PointSpreadLoading  />
     }
 
 

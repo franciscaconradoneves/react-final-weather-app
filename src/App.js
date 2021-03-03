@@ -1,14 +1,12 @@
 import React from "react";
-import AppWrapper from "./AppWrapper";
-import Forecast from "./Forecast";
+import SearchEngine from "./SearchEngine";
 
 import "./App.css";
 
 export default function App(){
   return(
     <div className="App">
-      <AppWrapper />
-      <Forecast />
+      <SearchEngine defaultCity="Porto"/>
     </div>
   );
 }
